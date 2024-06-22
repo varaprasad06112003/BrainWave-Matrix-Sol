@@ -2,7 +2,7 @@ import re
 import requests
 from urllib.parse import urlparse
 
-pi = [
+phishingIndicators = [
     r'login',
     r'account',
     r'verify',
@@ -36,7 +36,7 @@ def fetchURL(url):
         return None
 
 def scanForPhishing(content):
-    for i in pi:
+    for i in phishingIndicators:
         if re.search(i, content, re.IGNORECASE):
             return True
     return False
